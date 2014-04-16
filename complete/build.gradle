@@ -4,7 +4,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:0.5.0.M5")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE")
     }
 }
 
@@ -15,7 +15,7 @@ apply plugin: 'spring-boot'
 
 jar {
     baseName = 'gs-serving-mobile-web-content'
-    version =  '0.1.0'
+    version = '0.1.0'
 }
 
 repositories {
@@ -24,12 +24,11 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:0.5.0.M5")
-    compile("org.springframework.mobile:spring-mobile-device:1.1.0.RELEASE")
-    compile("org.thymeleaf:thymeleaf-spring3:2.0.17")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-mobile")
     testCompile("junit:junit:4.11")
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.8'
+    gradleVersion = '1.11'
 }
