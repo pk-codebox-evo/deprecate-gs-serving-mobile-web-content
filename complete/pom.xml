@@ -31,9 +31,6 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -45,9 +42,6 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>http://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </repository>
     </repositories>
 
@@ -56,9 +50,6 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>http://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
