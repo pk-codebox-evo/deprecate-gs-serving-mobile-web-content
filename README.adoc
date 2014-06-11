@@ -76,19 +76,17 @@ By including the Spring Mobile dependency, Spring Boot configures a {DeviceResol
 
 
 [[initial]]
-== Create a configuration class
+== Create a properties file
 
-Use the following configuration class to tell Spring where it can find the alternate mobile and tablet views:
+Use the following property to enable Spring Boot auto-configuration for alternative mobile and tablet views:
 
-`src/main/java/hello/WebConfiguration.java`
+`src/main/resources/application.properties`
 [source,java]
-----
-include::complete/src/main/java/hello/WebConfiguration.java[]
-----
+---
+include::complete/src/main/resources/application.properties[]
+---
 
-Internally, {LiteDeviceDelegatingViewResolver}[`LiteDeviceDelegatingViewResolver`] makes use of the {Device}[`Device`] resolved by {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] to determine whether to return normal, mobile, or tablet specific views for a request. In this case, {LiteDeviceDelegatingViewResolver}[`LiteDeviceDelegatingViewResolver`] is configured to delegate requests to {ThymeleafViewResolver}[`ThymeleafViewResolver`]. {ThymeleafViewResolver}[`ThymeleafViewResolver`] is a type of {ViewResolver}[`ViewResolver`], which is used by Spring to perform server-side rendering of HTML.
-
-Autowiring the `SpringTemplateEngine` makes use of the default web configuration in Spring Boot. Declaring the `LiteDeviceDelegatingViewResolver` bean with a name of *thymeleafViewResolver* will override the default `ThymeleafViewResolver` configuration in Spring Boot.
+Internally, {LiteDeviceDelegatingViewResolver}[`LiteDeviceDelegatingViewResolver`] makes use of the {Device}[`Device`] resolved by {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] to determine whether to return normal, mobile, or tablet specific views for a request. In this case, {LiteDeviceDelegatingViewResolver}[`LiteDeviceDelegatingViewResolver`] is configured to delegate requests to {ThymeleafViewResolver}[`ThymeleafViewResolver`]. {ThymeleafViewResolver}[`ThymeleafViewResolver`] is a type of {ViewResolver}[`ViewResolver`], which is used by Spring to perform server-side rendering of HTML. Spring Boot defaults to `mobile/` and `tablet/` prefixes for the corresponding views, but alternate locations can be configured with additional properties.
 
 
 == Create a web controller
@@ -113,7 +111,7 @@ The implementation of the method body relies on a link:/understanding/view-templ
 include::complete/src/main/resources/templates/greeting.html[]
 ----
 
-Note the location of the mobile and tablet versions of the greeting view. These were configured earlier in `WebConfiguration` to use the `mobile/` and `tablet/` prefix.
+Note the location of the mobile and tablet versions of the greeting view. These are the default locations used by auto-configuration. Additional properties are available to specify alternate locations.
 
     └── src
         └── main
