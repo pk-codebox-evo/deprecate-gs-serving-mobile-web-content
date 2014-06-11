@@ -82,9 +82,9 @@ Use the following property to enable Spring Boot auto-configuration for alternat
 
 `src/main/resources/application.properties`
 [source,java]
----
+----
 include::complete/src/main/resources/application.properties[]
----
+----
 
 Internally, {LiteDeviceDelegatingViewResolver}[`LiteDeviceDelegatingViewResolver`] makes use of the {Device}[`Device`] resolved by {DeviceResolverHandlerInterceptor}[`DeviceResolverHandlerInterceptor`] to determine whether to return normal, mobile, or tablet specific views for a request. In this case, {LiteDeviceDelegatingViewResolver}[`LiteDeviceDelegatingViewResolver`] is configured to delegate requests to {ThymeleafViewResolver}[`ThymeleafViewResolver`]. {ThymeleafViewResolver}[`ThymeleafViewResolver`] is a type of {ViewResolver}[`ViewResolver`], which is used by Spring to perform server-side rendering of HTML. Spring Boot defaults to `mobile/` and `tablet/` prefixes for the corresponding views, but alternate locations can be configured with additional properties.
 
