@@ -163,3 +163,6 @@ or
 == Summary
 
 Congratulations! You have just developed a simple web page that detects the type of device being used by a client and serves different views for each device type.
+
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+
