@@ -29,6 +29,3 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-mobile")
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
-}
